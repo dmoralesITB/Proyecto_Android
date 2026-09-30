@@ -12,6 +12,8 @@ composeBom = "2026.09.00"
 nav3Core = "1.0.1"
 kotlinxSerializationCore = "1.9.0"
 navigationRuntimeKtx = "2.10.2"
+navigation3Runtime = "1.2.0"
+navigation3Ui = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,13 +33,15 @@ androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-te
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationRuntimeKtx" }
-
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 # Navigation 3
 androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "nav3Core" }
 androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "nav3Core" }
 
 # Serialización
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationCore" }
+navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "navigation3Runtime" }
+navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3Ui" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
