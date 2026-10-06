@@ -6,6 +6,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.trivialapp_base.view.TaskDetailScreen
 import com.example.trivialapp_base.view.TaskListScreen
+import com.example.trivialapp_base.view.TaskViewScreen
 import com.example.trivialapp_base.viewmodel.TaskViewModel
 
 @Composable
@@ -20,7 +21,7 @@ fun NavigationWrapper(viewModel: TaskViewModel) {
             }
         },
         entryProvider = entryProvider {
-            // 1. Pantalla principal
+            // 1. Pantalla principal (Lista)
             entry<Routes.Pantalla1> {
                 TaskListScreen(
                     viewModel = viewModel,
@@ -35,8 +36,30 @@ fun NavigationWrapper(viewModel: TaskViewModel) {
                 // Vista secundaria
             }
 
-            // 3. Pantalla de detalle
+            // 3. Pantalla de vista de tarea (Solo lectura)
             entry<Routes.Pantalla3> { key ->
+                TaskViewScreen(
+                    taskId = key.taskId,
+                    viewModel = viewModel,
+                    onEditClick = {
+                        backStack.add(Routes.Pantalla4(taskId = key.taskId))
+                    },
+                    onDeleteClick = {
+                        viewModel.deleteTask(key.taskId)
+                        if (backStack.size > 1) {
+                            backStack.removeAt(backStack.lastIndex)
+                        }
+                    },
+                    onBackClick = {
+                        if (backStack.size > 1) {
+                            backStack.removeAt(backStack.lastIndex)
+                        }
+                    }
+                )
+            }
+
+            // 4. Pantalla de edición de tarea (TaskDetailScreen)
+            entry<Routes.Pantalla4> { key ->
                 TaskDetailScreen(
                     taskId = key.taskId,
                     viewModel = viewModel,

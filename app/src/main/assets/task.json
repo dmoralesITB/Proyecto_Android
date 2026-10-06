@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Configurar entorno de desarrollo",
+    "description": "Instalar Android Studio y configurar repositorio GitHub",
+    "isCompleted": true
+  },
+  {
+    "id": "2",
+    "title": "Diseñar UI Sprint 1",
+    "description": "Crear las pantallas principales en Jetpack Compose",
+    "isCompleted": false
+  },
+  {
+    "id": "3",
+    "title": "Crear archivo de datos iniciales",
+    "description": "Definir las tareas en formato JSON o XML",
+    "isCompleted": false
+  }
+]

@@ -13,4 +13,7 @@ sealed class Routes : NavKey {
 
     @Serializable
     data class Pantalla3(val taskId: String) : Routes()
+    @Serializable
+    data class Pantalla4(val taskId: String) : Routes()
+
 }

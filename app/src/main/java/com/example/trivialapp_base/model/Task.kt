@@ -1,8 +1,11 @@
 package com.example.trivialapp_base.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Task(
     val id: String,
-    var title: String,
-    var description: String,
-    var isCompleted: Boolean = false
+    val title: String,
+    val description: String,
+    val isCompleted: Boolean
 )
