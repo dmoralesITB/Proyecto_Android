@@ -3,12 +3,13 @@ package com.example.trivialapp_base
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
+@Serializable
 sealed class Routes : NavKey {
     @Serializable
-    data object TaskListScreen : Routes()
+    data object Pantalla1 : Routes()
 
     @Serializable
-    data object TaskDetailScreen : Routes()
+    data object Pantalla2 : Routes()
 
     @Serializable
     data class Pantalla3(val taskId: String) : Routes()

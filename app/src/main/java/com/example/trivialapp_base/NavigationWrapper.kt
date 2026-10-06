@@ -10,8 +10,7 @@ import com.example.trivialapp_base.viewmodel.TaskViewModel
 
 @Composable
 fun NavigationWrapper(viewModel: TaskViewModel) {
-    // Es fundamental tipar <Routes> para que Navigation 3 use el serializador correcto
-    val backStack = rememberNavBackStack<Routes>(Routes.TaskListScreen)
+    val backStack = rememberNavBackStack(Routes.Pantalla1)
 
     NavDisplay(
         backStack = backStack,
@@ -21,8 +20,8 @@ fun NavigationWrapper(viewModel: TaskViewModel) {
             }
         },
         entryProvider = entryProvider {
-            // 1. Lista de tareas
-            entry<Routes.TaskListScreen> {
+            // 1. Pantalla principal
+            entry<Routes.Pantalla1> {
                 TaskListScreen(
                     viewModel = viewModel,
                     onTaskClick = { taskId ->
@@ -31,12 +30,12 @@ fun NavigationWrapper(viewModel: TaskViewModel) {
                 )
             }
 
-            // 2. Vista secundaria opcional
-            entry<Routes.TaskDetailScreen> {
-                // ...
+            // 2. Pantalla secundaria opcional
+            entry<Routes.Pantalla2> {
+                // Vista secundaria
             }
 
-            // 3. Detalle de tarea
+            // 3. Pantalla de detalle
             entry<Routes.Pantalla3> { key ->
                 TaskDetailScreen(
                     taskId = key.taskId,

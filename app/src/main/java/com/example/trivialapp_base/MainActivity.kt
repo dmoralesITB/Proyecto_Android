@@ -4,14 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.trivialapp_base.ui.theme.TrivialAPP_BaseTheme
+import com.example.trivialapp_base.viewmodel.TaskViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,18 +14,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TrivialAPP_BaseTheme {
-                // Controlador de navegación
+                // Instanciamos el ViewModel ligado al ciclo de vida de la Activity
+                val taskViewModel: TaskViewModel = viewModel()
 
-
-
-                // Instanciamos el ViewModel una vez
-
-
-
-                // Definición de rutas y navegación
-
-
-
+                // Punto de entrada de la navegación principal
+                NavigationWrapper(viewModel = taskViewModel)
             }
         }
     }
